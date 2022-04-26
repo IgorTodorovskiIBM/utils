@@ -1,0 +1,17 @@
+{
+  "name": "PROJECT_NAME",
+  "path": "https://ftp.gnu.org/gnu/make/make-4.3.tar.gz"
+  "version": "1.0.0",
+  "envars": {
+    "CC": "xlclang",
+    "LINK": "xlclang++",
+    "script": "setenv.sh"
+  },
+  "scripts": {
+    "pre-build": "./configure",
+    "build": "make",
+    "test": "make check",
+    "test-failures": "grep failures",
+    "install": "make install"
+  },
+}
