@@ -1,1 +1,52 @@
-&ÊÁÊÁÉÍÑËÑÈÁËÀ|Â¦ÁÄÈÃÑ%ÁË?,??Â¦Á%Ã<Ñ>,ÁÊ?ÍÈøÍÈÑ%,_/øÁÌø&ÊÁÄ?_øÑ%ÁÀçÁ/ÀÁÊËÅÄÇøÄÇ<ÑÂÊ/ÊÑÁË%ÑÂ/%/%?ëÇ/ÊÁÀ?Â¦ÁÄÈËÑ>ÄïÑ>À?ÏËà<<ËÀ%%Ë?Ë?À`%ÑÂáÌÁÄÍÈ/Â%ÁËÁÌÁ?ÍÈ/øøÑÌ^ÇÁÌàÁÂÍÅÃÑ%ÁËÀëß(ËÍÑÀÂøÀÂ.ÁÊ>Á%(?ÀÍ%Áä?_øÑ%ÁêÁËÍ%ÈË_?ÀÄ_ÀÈ_ø^ÎÁÊËÑ?>Ë_?ÀÍ%ÁË?ÊÀÁÊ(?ÀÍ%ÁË`_ÎÁÊË(,ÃÑ%Á?%ÀÀ,_ËÄ?>Ã
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
+Module.symvers
+Mkfile.old
+dkms.conf

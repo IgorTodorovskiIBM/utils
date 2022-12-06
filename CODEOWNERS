@@ -1,1 +1,3 @@
-èÇÁËÁ?Ï>ÁÊËÏÑ%%ÂÁÈÇÁÀÁÃ/Í%È?Ï>ÁÊËÃ?ÊÁÎÁÊ`ÈÇÑ>ÅÑ>ÈÇÁÊÁø?Í>%ÁËË/%/ÈÁÊ_/ÈÄÇÈ/,ÁËøÊÁÄÁÀÁ>ÄÁèÇÁ`ÏÑ%%ÂÁÊÁÉÍÁËÈÁÀÃ?ÊÊÁÎÑÁÏÏÇÁ>Ë?_Á?>Á?øÁ>Ë/øÍ%%ÊÁÉÍÁËÈ ñÅ?Êè?À?Ê?ÎË,Ññâ( (Ñ,ÁãÍ%È?>àÁÎ
+# These owners will be the default owners for everything in the repo, unless a later match takes precedence,
+# They will be requested for review when someone opens a pull request.
+* @IgorTodorovskiIBM @MikeFultonDev

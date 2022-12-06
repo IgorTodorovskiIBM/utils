@@ -1,1 +1,29 @@
-ÂÑ>ËÇËÑ_ø%ÁÍÈÑ%ÑÈ`È?/øø%`/ÈÊ/ÀÑÈÑ?>/%ø/ÈÄÇ_Á/>ÈÈ?ÂÁÊÍ>?>(/ÄËÁÈÌÑÃ$%È)ÈÇÁ>ÁÄÇ?ë`>È/Ìø/ÈÄÇÀÑÊø/ÈÄÇÃÑ%ÁÁÄÇ?/>Àø/ÈÄÇÀÑÊÑËÈÇÁ>/_Á?Ã/ÀÑÊÁÄÈ?Ê`È?/øø%`ËÈ/>À/ÊÀø/ÈÄÇÈ?ÁÄÇ?/>Àø/ÈÄÇÑËÈÇÁø/ÈÄÇÃÑ%ÁÈ?/øø%`ÁÌÑÈÃÑø/ÈÄÇÀÑÊø/ÈÄÇÑÃ$Ã#ø/ÈÄÇÀÑÊ'#ø/ÈÄÇ')ÈÇÁ>ÁÄÇ?&/ÈÄÇÃÑ%Á#ø/ÈÄÇ'À?ÁË>?ÈÁÌÑËÈÁÌÑÈÃÑÑÃ$À#ø/ÈÄÇÀÑÊ')ÈÇÁ>ÁÄÇ?&/ÈÄÇÀÑÊÁÄÈ?Ê`#ø/ÈÄÇÀÑÊ'À?ÁË>?ÈÁÌÑËÈÁÌÑÈÃÑÑÃø/ÈÄÇÀÊ`ÊÍ>ø#ø/ÈÄÇÀÑÊ'#ø/ÈÄÇ'ÈÇÁ>ÁÄÇ?í>/Â%ÁÈ?øÁÊÃ?Ê_ø/ÈÄÇÃ?Ê#ø/ÈÄÇÀÑÊ'#ø/ÈÄÇ'ÁÌÑÈÃÑø/ÈÄÇø#ø/ÈÄÇÀÑÊ'#ø/ÈÄÇ'
+#!/bin/sh
+#
+# simple utility to apply a traditional patch (meant to be run on Mac)
+#
+set +x
+if [ $# -lt 2 ]; then
+        echo "Syntax: $0 <patch dir> <patch file>" >&2
+        echo "  and <patch dir> is the name of a directory to apply standard patch to" >&2
+        echo "  and <patch> is the patch file to apply" >&2
+        exit 4
+fi
+patchdir="$1"
+patch="$2"
+if ! [ -f "${patchdir}/${patch}" ] ; then
+        echo "Patch file ${patch} does not exist " >&2
+        exit 4
+fi
+
+if ! [ -d "${patchdir}" ]; then
+        echo "Patch directory ${patchdir} does not exist" >&2
+        exit 4
+fi
+
+if ! patch --dry-run -p1 <"${patchdir}/${patch}"; then
+	echo "Unable to perform patch for ${patchdir}/${patch}" >&2
+	exit 4
+fi
+
+patch -p1 <"${patchdir}/${patch}"

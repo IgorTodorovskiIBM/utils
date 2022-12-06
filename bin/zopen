@@ -1,1 +1,68 @@
-ÂÑ>ËÇåÁ>ÁÊ/%øÍÊø?ËÁ:?øÁ>ËÄÊÑøÈøÊÑ>Èë`>È/Ì#ÁÄÇ?ÁÄÇ?ë`>È/Ì:?øÁ>Ä?__/>ÀÁÄÇ?ÏÇÁÊÁÄ?__/>À_/`ÂÁ?>Á?ÃÈÇÁÃ?%%?ÏÑ>ÅÁÄÇ?ÂÍÑ%ÀÑ>Î?,ÁËÈÇÁÂÍÑ%ÀËÄÊÑøÈÁÄÇ?À?Ï>%?/ÀÀ?Ï>%?/ÀËÂÑ>/ÊÑÁËÁÄÇ?ÅÁ>ÁÊ/ÈÁÅÁ>ÁÊ/ÈÁ/:?øÁ>øÊ?¦ÁÄÈÁÄÇ?ÍøÀ/ÈÁÄ/ÄÁÊÈÍøÀ/ÈÁÈÇÁÄ/ÄÁÊÈøÁ_ÃÑ%ÁÁÄÇ?'øÊÑ>ÈçÁ%ø#/ÊÅËÁÄÇ?:?øÁ>ÑË/ÅÁ>ÁÊ/%øÍÊø?ËÁËÄÊÑøÈÈ?ÂÁÍËÁÀÏÑÈÇÈÇÁ!|ë|øÁ>è??%Ëø?ÊÈËøÊÑ>Èë`>È/ÌÁÄÇ?áÌ/_ø%ÁÍË/ÅÁÁÄÇ?âÍÑ%À/ø?ÊÈÁÄÇ?:?øÁ>ÂÍÑ%ÀÎâÍÑ%Àø?ÊÈÁÄÇ?<ÑËÈ/Î/Ñ%/Â%Áø?ÊÈËÈ?À?Ï>%?/ÀÁÄÇ?:?øÁ>À?Ï>%?/À%ÑËÈÁÄÇ?à?Ï>%?/ÀÂÑ>/ÊÑÁËÃÊ?_åÑÈÇÍÂÁÄÇ?:?øÁ>À?Ï>%?/ÀÁÄÇ?åÁ>ÁÊ/ÈÁ/:?øÁ>ÈÁ_ø%/ÈÁøÊ?¦ÁÄÈÁÄÇ?:?øÁ>ÅÁ>ÁÊ/ÈÁ'ÁÌø?ÊÈÂÑ>ÀÑÊÄÀÀÑÊ>/_ÁÀÁÎ>Í%%øÏÀ&#ÂÑ>ÀÑÊ'%ÑÂÄ?__?>Ñ>Ä/ÊÅËÏÇÑ%Á$$ÅÈ))À?Ä/ËÁÑ>ÂÍÑ%ÀËÇÑÃÈÁÌÁÄ#ÂÑ>ÀÑÊ'%ÑÂ:?øÁ>ÂÍÑ%À À?Ï>%?/ÀËÇÑÃÈÁÌÁÄ#ÂÑ>ÀÑÊ'%ÑÂ:?øÁ>À?Ï>%?/À ÅÁ>ÁÊ/ÈÁËÇÑÃÈÁÌÁÄ#ÂÑ>ÀÑÊ'%ÑÂ:?øÁ>ÅÁ>ÁÊ/ÈÁ ÍøÀ/ÈÁÄ/ÄÁÊÈËÇÑÃÈÁÌÁÄ#ÂÑ>ÀÑÊ'%ÑÂ:?øÁ>ÍøÀ/ÈÁÄ/ÄÁÊÈ ÇÁ%ø@Ç@Ç@ÇÁ%ø@ÇÁ%ø@@Ë`>È/ÌøÊÑ>ÈçÁ%ø#/ÊÅË'ÁÌÑÈøÊÑ>Èë?ÃÈáÊÊ?Êí>,>?Ï>?øÈÑ?>#'ËøÁÄÑÃÑÁÀøÊÑ>Èë`>È/Ì#/ÊÅË'ÁÌÑÈÁË/ÄËÇÑÃÈÀ?>ÁøÊÑ>ÈçÁ%ø
+#!/bin/sh
+#
+# General purpose zopen script
+#
+printSyntax()
+{
+  echo "" >&2
+  echo "Syntax: zopen <command>" >&2
+  echo "where <command> may be one of the following:" >&2
+  echo " build: invokes the build script." >&2
+  echo " download: downloads binaries" >&2
+  echo " generate: generate a zopen project" >&2
+  echo " update-cacert: update the cacert.pem file" >&2
+  echo "" >&2
+}
+
+printHelp() 
+{
+  args=$*
+  echo "zopen is a general purpose script to be used with the ZOSOpenTools ports." >&2
+  printSyntax
+  echo "Example usage:" >&2
+  echo " # Build a port" >&2
+  echo " zopen build -v # Build port" >&2
+  echo " # List available ports to download" >&2
+  echo " zopen download --list" >&2
+  echo " # Download binaries from Github" >&2
+  echo " zopen download" >&2
+  echo " # Generate a zopen template project" >&2
+  echo " zopen generate" >&2
+}
+
+export bindir="$( cd "$(dirname "$0")" >/dev/null 2>&1 && pwd -P )"
+. "${bindir}/lib/common.inc"
+
+args=$*
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    "build")
+      shift
+      exec "${bindir}/lib/zopen-build" $@
+      ;;
+    "download")
+      shift
+      exec "${bindir}/lib/zopen-download" $@
+      ;;
+    "generate")
+      shift
+      exec "${bindir}/lib/zopen-generate" $@
+      ;;
+    "update-cacert")
+      shift
+      exec "${bindir}/lib/zopen-update-cacert" $@
+      ;;
+    "help" | "-h" | "--h" | "-help" | "--help" | "-?" | "-syntax")
+      printHelp "${args}"
+      exit 0
+      ;;
+    *)
+      printSoftError "Unknown option ${1} specified"
+      printSyntax "${args}"
+      exit 8
+      ;;
+  esac
+  shift;
+done
+
+printHelp

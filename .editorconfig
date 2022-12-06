@@ -1,1 +1,7 @@
-$ËÇ)Ñ>ÀÁ>È^ËÈ`%ÁËø/ÄÁÑ>ÀÁ>È^ËÑ:ÁËÇÁ%%^Î/ÊÑ/>Èø?ËÑÌ%Ñ,Á%>ø?ËÑÌËÏÑÈÄÇ^Ä/ËÁ^Ñ>ÀÁ>ÈÈÊÍÁ%Ñ,ÁÄÑÃÍ>ÄÈÑ?>^>ÁÌÈ^%Ñ>ÁÈÊÍÁ%Ñ,ÁÃ>
+[*.sh]
+indent_style = space
+indent_size = 2
+
+shell_variant      = posix # like -ln=posix
+switch_case_indent = true  # like -ci
+function_next_line = true  # like -fn
