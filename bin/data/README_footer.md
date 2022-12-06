@@ -1,8 +1,1 @@
-
----
-
-This is a z/OS Open Tools built project. For more information on z/OS Open Tools, visit https://zosopentools.github.io/meta/.
-
-To set up your environment, visit the [pre-requisites page](https://zosopentools.github.io/meta/#/Guides/Pre-req).
-
-To report issues, visit the [discussions page](https://github.com/ZOSOpenTools/meta/discussions).
+èÇÑËÑË/:|ë|øÁ>è??%ËÂÍÑ%ÈøÊ?¦ÁÄÈã?Ê_?ÊÁÑ>Ã?Ê_/ÈÑ?>?>:|ë|øÁ>è??%ËÎÑËÑÈÇÈÈøË:?Ë?øÁ>È??%ËÅÑÈÇÍÂÑ?_ÁÈ/è?ËÁÈÍø`?ÍÊÁ>ÎÑÊ?>_Á>ÈÎÑËÑÈÈÇÁ$øÊÁÊÁÉÍÑËÑÈÁËø/ÅÁ)ÇÈÈøË:?Ë?øÁ>È??%ËÅÑÈÇÍÂÑ?_ÁÈ/åÍÑÀÁË&ÊÁÊÁÉè?ÊÁø?ÊÈÑËËÍÁËÎÑËÑÈÈÇÁ$ÀÑËÄÍËËÑ?>Ëø/ÅÁ)ÇÈÈøËÅÑÈÇÍÂÄ?_!|ë|øÁ>è??%Ë_ÁÈ/ÀÑËÄÍËËÑ?>Ë
